@@ -1,30 +1,10 @@
 <template>
   <div class="container">
-    <h1>Nuxt Sandbox</h1>
-    <Prop :friend="friend">Passing a prop</Prop>
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Nuxt Sandbox</h1>
+        <p>This is a sandbox for me to play around with new ideas for Nuxt. This is not documentation. For my documentation, see <a href="https://docs.nathanblaylock.com" target="_blank">docs.nathanblaylock.com</a>.</p>
+      </div>
+    </div>
   </div>
 </template>
-
-<script>
-import Prop from '@/components/Prop'
-
-export default {
-  components: {
-    Prop
-  },
-  data() {
-    return {
-      friend: {
-        name: 'Brian Blaylock',
-        username: 'blaylockbk',
-        email: 'blaylockbk@gmail.com',
-        img: 'https://i.pravatar.cc/300'
-      }
-    }
-  }
-}
-</script>
-
-<style>
-
-</style>
