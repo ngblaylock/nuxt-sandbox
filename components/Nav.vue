@@ -31,9 +31,10 @@
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav class="ml-auto">
         <b-nav-item to="/axios">Axios</b-nav-item>
+        <b-nav-item to="/firebase">Firebase</b-nav-item>
         <b-nav-item-dropdown text="Components" right>
-          <b-dropdown-item href="/components/props">Props</b-dropdown-item>
-          <b-dropdown-item href="/components/slots">Slots</b-dropdown-item>
+          <b-dropdown-item to="/components/props">Props</b-dropdown-item>
+          <b-dropdown-item to="/components/slots">Slots</b-dropdown-item>
           <!-- <b-dropdown-item href="#">#</b-dropdown-item>
           <b-dropdown-divider></b-dropdown-divider>
           <b-dropdown-item href="#">#</b-dropdown-item> -->
