@@ -1,15 +1,15 @@
 <template>
   <div>
-    <Nav class="mb-3" />
+    <NavBar class="mb-3" />
     <nuxt />
   </div>
 </template>
 
 <script>
-import Nav from '@/components/Nav'
+import NavBar from '@/components/NavBar'
 export default {
   components: {
-    Nav
+    NavBar
   }
 }
 </script>

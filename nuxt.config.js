@@ -68,7 +68,7 @@ export default {
           // measurementId: '<measurementId>'
         },
         services: {
-          // auth: true,
+          auth: true,
           firestore: true
         }
       }
