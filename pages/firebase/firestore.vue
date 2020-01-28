@@ -38,8 +38,7 @@ export default {
   data() {
     return {
       message: 'Hello Nuxt-Fire',
-      files: [],
-      date: null
+      files: []
     }
   },
   created: function() {
