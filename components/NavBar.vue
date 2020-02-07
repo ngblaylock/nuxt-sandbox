@@ -34,6 +34,7 @@
         <b-nav-item-dropdown text="Firebase" right>
           <b-dropdown-item to="/firebase/auth">Authentication</b-dropdown-item>
           <b-dropdown-item to="/firebase/firestore">Firestore</b-dropdown-item>
+          <b-dropdown-item to="/firebase/storage">Storage</b-dropdown-item>
           <!-- <b-dropdown-divider></b-dropdown-divider> -->
         </b-nav-item-dropdown>
         <b-nav-item-dropdown text="Components" right>
