@@ -3,6 +3,7 @@
     <h1>Firebase Cloud Storage</h1>
     <div class="row">
       <div class="col-sm-12">
+        <h2>Upload a file</h2>
         <p>Make sure you are logged in or it won't work</p>
         <form
           @submit.prevent="upload"
@@ -38,24 +39,13 @@
     </div>
     <div class="row">
       <div class="col-sm-12">
-        <h2 class="mt-4">To Do:</h2>
-        <ol>
-          <li>Show Progress for upload</li>
-          <li>
-            Get a reference to the document to save in a database:
-            <mark
-              >This might be as simple as saving the sorageRef child path, or
-              the root path.</mark
-            >
-          </li>
-          <li>Delete a file</li>
-        </ol>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore
-          esse, cumque fugit veniam officiis mollitia expedita, accusamus
-          quibusdam sequi perferendis incidunt necessitatibus vero repellendusss
-          laborum totam. Explicabo et sit illum!
-        </p>
+        <h2>Get a file</h2>
+        <img v-if="imageUrl" :src="imageUrl" alt="" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <h2 class="text-danger">TODO: Delete a file</h2>
       </div>
     </div>
   </div>
@@ -68,23 +58,49 @@ export default {
     return {
       fileToUpload: null,
       documentUploaded: false,
-      progress: 67
+      progress: 0,
+      username: 'ngblaylock',
+      imageUrl: ''
     }
   },
   methods: {
     processFile(event) {
-      // SAVE A REFERENCE TO THE UPLOADED SINGLE FILE ON CHANGE EVENT
+      // SAVE A REFERENCE TO THE UPLOADED SINGLE FILE WITH `@change='processFile'` EVENT ON THE UPLOAD FILE
       this.fileToUpload = event.target.files[0]
     },
     upload() {
       // ON FORM SUBMISSION, UPLOAD THE FILE
-      const storageRef = this.$fireStorage.ref(
-        'images/' + this.fileToUpload.name
+      let storageRef = this.$fireStorage.ref(
+        `${this.username}/${this.fileToUpload.name}`
       )
-      storageRef.put(this.fileToUpload).then(snapshot => {
-        this.documentUploaded = true
-      })
+      let uploadTask = storageRef.put(this.fileToUpload)
+
+      uploadTask.on(
+        'state_changed',
+        snapshot => {
+          let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          this.progress = parseInt(progress)
+        },
+        error => {
+          console.error(`There was an error uploading the file: ${error}`)
+        },
+        () => {
+          this.documentUploaded = true
+        }
+      )
     }
+  },
+  mounted: function() {
+    // GET A FILE
+    this.$fireStorage
+      .ref('images/hero.png')
+      .getDownloadURL()
+      .then(url => {
+        this.imageUrl = url
+      })
+      .catch(error => {
+        console.error(`Error getting document: ${error}`)
+      })
   }
 }
 </script>
