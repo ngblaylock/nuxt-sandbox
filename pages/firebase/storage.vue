@@ -27,8 +27,10 @@
               type="file"
               name="fileUpload"
               id="fileUpload"
+              accept="image/jpg"
               @change="processFile"
             />
+            <p class="small">Only upload .jpg files.</p>
           </div>
           <button type="submit" class="btn btn-primary">Upload</button>
         </form>
@@ -40,12 +42,17 @@
     <div class="row">
       <div class="col-sm-12">
         <h2>Get a file</h2>
-        <img v-if="imageUrl" :src="imageUrl" alt="" />
+        <img v-if="imageUrl" :src="imageUrl" alt="" class="img-fluid" />
       </div>
     </div>
     <div class="row">
       <div class="col-sm-12">
         <h2 class="text-danger">TODO: Delete a file</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <h2 class="text-danger">TODO: List Files</h2>
       </div>
     </div>
   </div>
@@ -59,7 +66,6 @@ export default {
       fileToUpload: null,
       documentUploaded: false,
       progress: 0,
-      username: 'ngblaylock',
       imageUrl: ''
     }
   },
@@ -70,9 +76,9 @@ export default {
     },
     upload() {
       // ON FORM SUBMISSION, UPLOAD THE FILE
-      let storageRef = this.$fireStorage.ref(
-        `${this.username}/${this.fileToUpload.name}`
-      )
+      let storageRef = this.$fireStorage.ref(`images/upload.jpg`)
+      // OR USE THE ORIGINAL FILE NAME
+      // let storageRef = this.$fireStorage.ref(`images/${this.fileToUpload.name}`)
       let uploadTask = storageRef.put(this.fileToUpload)
 
       uploadTask.on(
@@ -86,6 +92,15 @@ export default {
         },
         () => {
           this.documentUploaded = true
+          this.$fireStorage
+            .ref('images/upload.jpg')
+            .getDownloadURL()
+            .then(url => {
+              this.imageUrl = url
+            })
+            .catch(error => {
+              console.error(`Error getting document: ${error}`)
+            })
         }
       )
     }
@@ -93,7 +108,7 @@ export default {
   mounted: function() {
     // GET A FILE
     this.$fireStorage
-      .ref('images/hero.png')
+      .ref('images/upload.jpg')
       .getDownloadURL()
       .then(url => {
         this.imageUrl = url
