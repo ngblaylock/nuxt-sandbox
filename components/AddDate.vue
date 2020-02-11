@@ -57,22 +57,22 @@ export default {
     this.$fireAuth.onAuthStateChanged(user => {
       if (user) {
         this.loggedIn = true
-        this.$fireStore
-          .collection('dates')
-          .orderBy('newTempDate')
-          .onSnapshot(
-            snapshot => {
-              this.savedDates = []
-              snapshot.docs.forEach(doc => {
-                let obj = doc.data()
-                obj.id = doc.id
-                this.savedDates.push(obj)
-              })
-            },
-            err => {
-              console.log(err.message)
-            }
-          )
+        // this.$fireStore
+        //   .collection('dates')
+        //   .orderBy('newTempDate')
+        //   .onSnapshot(
+        //     snapshot => {
+        //       this.savedDates = []
+        //       snapshot.docs.forEach(doc => {
+        //         let obj = doc.data()
+        //         obj.id = doc.id
+        //         this.savedDates.push(obj)
+        //       })
+        //     },
+        //     err => {
+        //       console.log(err.message)
+        //     }
+        //   )
       } else {
         this.loggedIn = false
         console.log('No one is logged in.')

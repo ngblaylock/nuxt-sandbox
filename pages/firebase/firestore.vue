@@ -38,28 +38,12 @@ export default {
   data() {
     return {
       message: 'Hello Nuxt-Fire',
-      files: []
+      files: [],
+      destroySnapshot: null
     }
   },
   created: function() {
-    // REGULAR READ DATABASE
-    //
-    // this.$fireStore
-    //   .collection('people')
-    //   .get()
-    //   .then(snapshot => {
-    //     snapshot.docs.forEach(doc => {
-    //       let obj = doc.data()
-    //       obj.id = doc.id
-    //       console.log(obj)
-    //       this.files.push(obj)
-    //     })
-    //   })
-    //   .catch(err => {
-    //     console.error(err.message)
-    //   })
-
-    this.$fireStore
+    this.destroySnapshot = this.$fireStore
       .collection('people')
       .orderBy('age')
       .onSnapshot(
@@ -75,8 +59,9 @@ export default {
           console.log(err.message)
         }
       )
+  },
+  beforeDestroy: function() {
+    this.destroySnapshot()
   }
 }
 </script>
-
-<style lang="scss" scoped></style>

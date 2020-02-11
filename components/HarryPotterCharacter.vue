@@ -2,18 +2,23 @@
   <div>
     <div class="people" :data-id="character.id">
       <img
-        src="https://placehold.it/100"
+        v-if="character.imageURL"
+        class="profile-img"
+        :src="character.imageURL"
         :alt="`portrait of ${character.name}`"
+      />
+      <img
+        v-else
+        class="profile-img"
+        src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+        alt="No picture"
       />
       <div>
         <h4>{{ character.name }}</h4>
         <p>{{ character.age }} years old</p>
       </div>
       <div class="ml-auto">
-        <button
-          class="mx-1 btn btn-link text-info"
-          @click="openEditModal()"
-        >
+        <button class="mx-1 btn btn-link text-info" @click="openEditModal()">
           <i class="fas fa-pencil-alt"><span class="sr-only">Edit</span></i>
         </button>
 
@@ -83,7 +88,7 @@ export default {
         .delete()
     },
     openEditModal: function() {
-      this.selectedUser = {...this.character}
+      this.selectedUser = { ...this.character }
       this.$bvModal.show(`character-${this.character.id}`)
     },
     editPerson: function(id) {
@@ -115,6 +120,12 @@ export default {
   border-radius: 2px;
   margin-bottom: 12px;
   align-items: center;
+  .profile-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: 50% 0;
+  }
   div {
     padding: 12px;
     p {
