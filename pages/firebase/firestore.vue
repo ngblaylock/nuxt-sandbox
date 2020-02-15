@@ -11,7 +11,6 @@
       <div class="col-sm-6">
         <h2>Add Character</h2>
         <AddHarryPotterCharacter />
-        <AddDate />
       </div>
       <div class="col-sm-6">
         <h2>Harry Potter Characters</h2>
@@ -24,13 +23,11 @@
 </template>
 
 <script>
-import AddDate from '@/components/AddDate'
 import AddHarryPotterCharacter from '@/components/AddHarryPotterCharacter'
 import HarryPotterCharacter from '@/components/HarryPotterCharacter'
 
 export default {
   components: {
-    AddDate,
     AddHarryPotterCharacter,
     HarryPotterCharacter
   },
