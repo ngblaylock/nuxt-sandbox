@@ -11,6 +11,7 @@
       <div class="col-sm-6">
         <h2>Add Character</h2>
         <AddHarryPotterCharacter />
+        <ListHarryPotterCharacterImages />
       </div>
       <div class="col-sm-6">
         <h2>Harry Potter Characters</h2>
@@ -25,11 +26,13 @@
 <script>
 import AddHarryPotterCharacter from '@/components/AddHarryPotterCharacter'
 import HarryPotterCharacter from '@/components/HarryPotterCharacter'
+import ListHarryPotterCharacterImages from '@/components/ListHarryPotterCharacterImages'
 
 export default {
   components: {
     AddHarryPotterCharacter,
-    HarryPotterCharacter
+    HarryPotterCharacter,
+    ListHarryPotterCharacterImages
   },
   name: 'FirebaseFirestore',
   data() {

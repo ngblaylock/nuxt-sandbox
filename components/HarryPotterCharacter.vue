@@ -35,7 +35,7 @@
           <h3>Edit Profile Image</h3>
           <div>
             <img
-              :src="selectedUser.imageURL ? selectedUser.imageURL : placeholder"
+              :src="character.imageURL ? character.imageURL : placeholder"
               class="img-profile"
               alt=""
             />
@@ -53,7 +53,7 @@
             </div>
           </div>
           <p class="mt-2">
-            <input type="file" @change="editProfileImg" />
+            <input type="file" @change="editProfileImg" id='update-profile-img' />
           </p>
         </div>
 
@@ -142,12 +142,12 @@ export default {
         snapshot => {
           let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
           this.progress = parseInt(progress)
-          console.log(progress)
         },
         error => {
           alert(`There was an error uploading the file: ${error}`)
         },
         () => {
+          document.getElementById('update-profile-img').value = ''
           this.$fireStorage
             .ref(imagePath)
             .getDownloadURL()

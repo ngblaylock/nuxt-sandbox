@@ -31,6 +31,7 @@
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav class="ml-auto">
         <b-nav-item to="/axios">Axios</b-nav-item>
+        <b-nav-item to="/tabletop">Tabletop</b-nav-item>
         <b-nav-item-dropdown text="Firebase" right>
           <b-dropdown-item to="/firebase/auth">Authentication</b-dropdown-item>
           <b-dropdown-item to="/firebase/firestore">Firestore</b-dropdown-item>

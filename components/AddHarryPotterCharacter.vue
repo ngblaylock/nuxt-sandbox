@@ -93,6 +93,7 @@ export default {
                   imageURL: url
                 })
                 .then(() => {
+                  document.getElementById('fileUpload').value = ''
                   this.add.name = ''
                   this.add.age = ''
                 })
