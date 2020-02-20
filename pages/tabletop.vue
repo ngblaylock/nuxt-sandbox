@@ -2,7 +2,12 @@
   <div class="container">
     <h1>Tabletop Example</h1>
     <div v-if="loading">Loading...</div>
-    <div v-else v-for="(favorite, index) in favorites" :key="index" class="bg-light p-3 my-3">
+    <div
+      v-else
+      v-for="(favorite, index) in favorites"
+      :key="index"
+      class="bg-light p-3 my-3"
+    >
       <ul>
         <li>Name: {{ favorite.name }}</li>
         <li>Favorite Food: {{ favorite.favFood }}</li>
@@ -36,15 +41,17 @@ export default {
     }
   },
   mounted: function() {
-    Tabletop.init({
-      key:
-        'https://docs.google.com/spreadsheets/d/1cRACXmApZf1Y1FZP3RC-PdE8xFknTQl0inm_5T6c2zo/pubhtml',
-      simpleSheet: true,
-      callback: (data, tabletop) => {
-        console.log(data)
-        this.favorites = data
-        this.loading = false
-      }
+    window.addEventListener('load', () => {
+      Tabletop.init({
+        key:
+          'https://docs.google.com/spreadsheets/d/1cRACXmApZf1Y1FZP3RC-PdE8xFknTQl0inm_5T6c2zo/pubhtml',
+        simpleSheet: true,
+        callback: (data, tabletop) => {
+          console.log(data)
+          this.favorites = data
+          this.loading = false
+        }
+      })
     })
   }
 }
