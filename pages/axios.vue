@@ -1,7 +1,7 @@
 <template>
   <div class="container axios-example">
     <h1>Axios Example for getting JSON Posts</h1>
-    <div v-if="loading">Loading</div>
+    <div v-if="loading">Loading...</div>
     <div v-else v-for="post in posts" :key="post.id" class="bg-light p-3 mb-2">
       <h3>{{ post.title }}</h3>
       <p>{{ post.body }}</p>
@@ -17,6 +17,11 @@ export default {
     return {
       posts: [],
       loading: true
+    }
+  },
+  head(){
+    return {
+      title: 'Axios'
     }
   },
   created() {

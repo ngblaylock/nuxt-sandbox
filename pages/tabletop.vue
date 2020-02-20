@@ -32,27 +32,27 @@ export default {
   },
   head() {
     return {
+      title: 'Tabletop',
       script: [
         {
+          hid: 'tabletop',
           src:
-            'https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'
+            'https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js',
+          callback: () => {
+            Tabletop.init({
+              key:
+                'https://docs.google.com/spreadsheets/d/1cRACXmApZf1Y1FZP3RC-PdE8xFknTQl0inm_5T6c2zo/pubhtml',
+              simpleSheet: true,
+              callback: (data, tabletop) => {
+                console.log(data)
+                this.favorites = data
+                this.loading = false
+              }
+            })
+          }
         }
       ]
     }
-  },
-  mounted: function() {
-    window.addEventListener('load', () => {
-      Tabletop.init({
-        key:
-          'https://docs.google.com/spreadsheets/d/1cRACXmApZf1Y1FZP3RC-PdE8xFknTQl0inm_5T6c2zo/pubhtml',
-        simpleSheet: true,
-        callback: (data, tabletop) => {
-          console.log(data)
-          this.favorites = data
-          this.loading = false
-        }
-      })
-    })
   }
 }
 </script>
