@@ -42,8 +42,8 @@ export default {
       destroySnapshot: null
     }
   },
-  created: function() {
-    this.destroySnapshot = this.$fireStore
+  mounted: function() {
+    this.$fireStore
       .collection('people')
       .orderBy('age')
       .onSnapshot(
@@ -59,9 +59,6 @@ export default {
           console.log(err.message)
         }
       )
-  },
-  beforeDestroy: function() {
-    this.destroySnapshot()
   }
 }
 </script>
