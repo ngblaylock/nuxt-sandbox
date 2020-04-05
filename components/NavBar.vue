@@ -43,6 +43,11 @@
           <b-dropdown-item to="/components/slots">Slots</b-dropdown-item>
           <!-- <b-dropdown-divider></b-dropdown-divider> -->
         </b-nav-item-dropdown>
+        <b-nav-item-dropdown text="Dynamic Links" right>
+          <b-dropdown-item to="/blablabla">Bla Bla Bla</b-dropdown-item>
+          <b-dropdown-item to="/testing-component">Testing Component</b-dropdown-item>
+          <!-- <b-dropdown-divider></b-dropdown-divider> -->
+        </b-nav-item-dropdown>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
