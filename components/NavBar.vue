@@ -47,8 +47,8 @@
           <b-dropdown-item to="/blablabla">Bla Bla Bla</b-dropdown-item>
           <b-dropdown-item to="/testing-component">Testing Component</b-dropdown-item>
           <!-- <b-dropdown-divider></b-dropdown-divider> -->
-          <b-dropdown-item to="/ql?title=blablabla">? Bla Bla Bla</b-dropdown-item>
-          <b-dropdown-item to="/ql?title=testing-componenet">? Testing Component</b-dropdown-item>
+          <b-dropdown-item to="/ql?id=3mY817bpH4IdZ2FvV6Cu">? Cornelius Fudge</b-dropdown-item>
+          <b-dropdown-item to="/ql?id=43U5gnoJzW7RTEhwObrO">? Vernon Dursley</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
     </b-collapse>
