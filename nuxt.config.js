@@ -1,7 +1,7 @@
 export default {
   mode: 'universal',
   generate: {
-    dir: 'docs'
+    fallback: true,
   },
   /*
    ** Headers of the page
@@ -53,35 +53,8 @@ export default {
    */
   modules: [
     // Doc: https://bootstrap-vue.js.org
-    'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
-    [
-      'nuxt-fire',
-      {
-        config: {
-          apiKey: 'AIzaSyDNyOaaiwSIiQneD35Io3U1vMbFh4Z_2PQ',
-          authDomain: 'nuxt-sandbox-ngb.firebaseapp.com',
-          databaseURL: 'https://nuxt-sandbox-ngb.firebaseio.com',
-          projectId: 'nuxt-sandbox-ngb',
-          storageBucket: 'nuxt-sandbox-ngb.appspot.com',
-          messagingSenderId: '89070211075',
-          appId: '1:89070211075:web:005a6babcc4d59fd1d7e36'
-          // measurementId: '<measurementId>'
-        },
-        services: {
-          auth: true,
-          firestore: true,
-          storage: true
-        }
-      }
-    ]
   ],
-  /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
-  axios: {},
   /*
    ** Build configuration
    */
@@ -90,5 +63,6 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
-  }
+  },
+  target: 'static'
 }

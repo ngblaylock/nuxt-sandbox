@@ -1,19 +1,7 @@
 <template>
   <div>
-    <NavBar class="mb-3" />
+    <nuxt-link to="/">Home</nuxt-link>
+    <nuxt-link to="/directory/Nathan">Nathan</nuxt-link>
     <nuxt />
   </div>
 </template>
-
-<script>
-import NavBar from '@/components/NavBar'
-export default {
-  components: {
-    NavBar
-  }
-}
-</script>
-
-<style>
-
-</style>
