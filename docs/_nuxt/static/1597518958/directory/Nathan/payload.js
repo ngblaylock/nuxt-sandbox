@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/directory/Nathan", {data:[{}],fetch:[],mutations:void 0});

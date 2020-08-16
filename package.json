@@ -8,10 +8,11 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "static": "nuxt build --target static && nuxt export"
   },
   "dependencies": {
-    "nuxt": "^2.14.0"
+    "nuxt": "2.13.3"
   },
   "devDependencies": {
     "node-sass": "^4.13.1",
