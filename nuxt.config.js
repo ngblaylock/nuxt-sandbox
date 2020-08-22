@@ -2,6 +2,7 @@ export default {
   mode: 'universal',
   generate: {
     fallback: true,
+    dir: 'docs'
   },
   /*
    ** Headers of the page
