@@ -1,17 +1,15 @@
 <template>
-  <div>
-    <h1>This is a test Nuxt Project!!!</h1>
+  <div class="center-vh container text-center">
+    <p>
+      <img src="https://avatars0.githubusercontent.com/u/22965283?s=280&v=4" alt="Bootstrap Vue Logo" />
+    </p>
+    <h1>Bootstrap Vue</h1>
   </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {}
 </script>
 
 <style>
- body{
-   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
- }
 </style>

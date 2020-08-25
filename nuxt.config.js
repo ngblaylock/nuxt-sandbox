@@ -4,11 +4,7 @@ export default {
     fallback: true,
     dir: 'docs'
   },
-  /*
-   ** Headers of the page
-   */
   head: {
-    // title: process.env.npm_package_name || '',
     title: 'Nuxt',
     titleTemplate: '%s | Sandbox',
     meta: [
@@ -33,37 +29,14 @@ export default {
       }
     ]
   },
-  /*
-   ** Customize the progress-bar color
-   */
   loading: { color: '#fff' },
-  /*
-   ** Global CSS
-   */
   css: [],
-  /*
-   ** Plugins to load before mounting the App
-   */
   plugins: [],
-  /*
-   ** Nuxt.js dev-modules
-   */
   buildModules: [],
-  /*
-   ** Nuxt.js modules
-   */
-  modules: [
-    // Doc: https://bootstrap-vue.js.org
-    // Doc: https://axios.nuxtjs.org/usage
-  ],
-  /*
-   ** Build configuration
-   */
+  modules: ['bootstrap-vue/nuxt'],
   build: {
-    /*
-     ** You can extend webpack config here
-     */
     extend(config, ctx) {}
   },
-  target: 'static'
+  target: 'static',
+  components: true
 }
