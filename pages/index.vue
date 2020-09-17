@@ -1,17 +1,10 @@
 <template>
   <div>
-    <h1>This is a test Nuxt Project!!!</h1>
+    <h1>Index Page</h1>
+    <my-component></my-component>
   </div>
 </template>
 
 <script>
-export default {
 
-}
 </script>
-
-<style>
- body{
-   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
- }
-</style>

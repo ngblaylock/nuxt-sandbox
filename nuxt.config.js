@@ -53,9 +53,15 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
-    // Doc: https://bootstrap-vue.js.org
-    // Doc: https://axios.nuxtjs.org/usage
+    '@nuxt/content'
   ],
+  content: {
+    markdown: {
+      prism: {
+        theme: 'prism-themes/themes/prism-material-oceanic.css'
+      }
+    }
+  },
   /*
    ** Build configuration
    */
@@ -65,5 +71,6 @@ export default {
      */
     extend(config, ctx) {}
   },
-  target: 'static'
+  target: 'static',
+  components: true
 }
