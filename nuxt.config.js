@@ -1,11 +1,7 @@
 export default {
-  mode: 'universal',
   generate: {
-    fallback: true,
+    fallback: true
   },
-  /*
-   ** Headers of the page
-   */
   head: {
     // title: process.env.npm_package_name || '',
     title: 'Nuxt',
@@ -63,6 +59,5 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
-  },
-  target: 'static'
+  }
 }
